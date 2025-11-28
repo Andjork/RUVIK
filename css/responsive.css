@@ -1,0 +1,618 @@
+/* css/responsive.css - Diseño responsive para UNIAJC Educa Digital */
+
+/* ===== DISPOSITIVOS GRANDES (Desktop) ===== */
+@media (min-width: 1201px) {
+    .container {
+        max-width: 1200px;
+    }
+    
+    .recursos-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ===== DISPOSITIVOS MEDIANOS (Tablets/Laptops) ===== */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+        padding: 0 var(--space-lg);
+    }
+    
+    .nav-container {
+        flex-wrap: wrap;
+        gap: var(--space-md);
+    }
+    
+    .recursos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .facultades-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .comunidad-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===== TABLETS (768px - 1024px) ===== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 var(--space-md);
+    }
+    
+    .nav-links {
+        gap: var(--space-sm);
+    }
+    
+    .nav-links a {
+        padding: var(--space-xs);
+        font-size: 0.9rem;
+    }
+    
+    .hero {
+        padding: var(--space-xl) var(--space-md);
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .search-bar {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .search-bar input {
+        width: 100%;
+    }
+    
+    .recursos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .facultades-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .comunidad-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* FORMULARIO RESPONSIVE */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filtros-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+    }
+    
+    .filtro-group {
+        width: 100%;
+    }
+    
+    .filtro-group select {
+        min-width: 100%;
+    }
+    
+    .recurso-actions {
+        flex-direction: column;
+    }
+    
+    .paso-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+    
+    .paso-header h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* ===== MOVILES GRANDES (576px - 768px) ===== */
+@media (max-width: 768px) {
+    :root {
+        --space-xl: 2rem;
+        --space-2xl: 2.5rem;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        padding: var(--space-sm);
+    }
+    
+    .logo-container {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+    }
+    
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: var(--space-xs);
+    }
+    
+    .hero {
+        padding: var(--space-lg) var(--space-sm);
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: var(--space-lg);
+    }
+    
+    .hero-stats {
+        gap: var(--space-md);
+        flex-wrap: wrap;
+    }
+    
+    .stat {
+        padding: var(--space-sm);
+        min-width: 100px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: var(--space-lg);
+    }
+    
+    .recursos-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .section-header {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+    }
+    
+    .comunidad-stats {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* FORMULARIO MOBILE */
+    .subir-header h1 {
+        font-size: 2rem;
+    }
+    
+    .form-section {
+        padding: var(--space-lg);
+    }
+    
+    .form-section h2 {
+        font-size: 1.2rem;
+    }
+    
+    .competencias-input,
+    .materiales-input,
+    .requisitos-input {
+        flex-direction: column;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* DETALLE RECURSO MOBILE */
+    .recurso-header-detalle {
+        padding: var(--space-lg);
+    }
+    
+    .recurso-header-detalle h1 {
+        font-size: 1.8rem;
+    }
+    
+    .recurso-meta-detalle {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+    
+    .paso-contenido {
+        padding: var(--space-lg);
+    }
+    
+    .implementacion-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .evaluacion-actions {
+        flex-direction: column;
+    }
+}
+
+/* ===== MOVILES PEQUEÑOS (hasta 576px) ===== */
+@media (max-width: 576px) {
+    .container {
+        padding: 0 var(--space-sm);
+    }
+    
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero p {
+        font-size: 0.95rem;
+    }
+    
+    .search-bar input {
+        padding: var(--space-sm);
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.7rem;
+    }
+    
+    .facultad-card,
+    .recurso-card {
+        padding: var(--space-lg);
+    }
+    
+    .recurso-title {
+        font-size: 1.1rem;
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .logo {
+        width: 40px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+    
+    /* FORMULARIO MOBILE PEQUEÑO */
+    .subir-header h1 {
+        font-size: 1.7rem;
+    }
+    
+    .form-section {
+        padding: var(--space-md);
+    }
+    
+    .upload-area {
+        padding: var(--space-lg);
+    }
+    
+    .pregunta-item-form {
+        padding: var(--space-md);
+    }
+    
+    .opciones-list-form {
+        gap: var(--space-xs);
+    }
+    
+    .opcion-item-form {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+    }
+    
+    /* DETALLE RECURSO MOBILE PEQUEÑO */
+    .recurso-header-detalle {
+        padding: var(--space-md);
+    }
+    
+    .recurso-header-detalle h1 {
+        font-size: 1.5rem;
+    }
+    
+    .paso-header {
+        padding: var(--space-md);
+    }
+    
+    .paso-contenido {
+        padding: var(--space-md);
+    }
+    
+    .breadcrumb {
+        font-size: 0.8rem;
+    }
+}
+
+/* ===== ORIENTACIÓN HORIZONTAL ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        padding: var(--space-lg) var(--space-md);
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .hero-stats {
+        margin-top: var(--space-lg);
+    }
+    
+    .nav-links {
+        gap: var(--space-xs);
+    }
+}
+
+/* ===== DISPLAYS DE ALTA DENSIDAD (Retina) ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo {
+        font-weight: 600;
+    }
+    
+    .section-title::after {
+        height: 3px;
+    }
+}
+
+/* ===== MODO OSCURO (Preferencias del sistema) ===== */
+@media (prefers-color-scheme: dark) {
+    /* Mantener colores UNIAJC pero ajustar contraste */
+    .recurso-card,
+    .facultad-card,
+    .comunidad-card {
+        background: #1a1a1a;
+        border-color: #333;
+    }
+    
+    .recurso-card:hover,
+    .facultad-card:hover,
+    .comunidad-card:hover {
+        border-color: var(--uniajc-blue);
+    }
+}
+
+/* ===== IMPRESIÓN ===== */
+@media print {
+    .header,
+    .footer,
+    .nav-links,
+    .search-bar,
+    .form-actions,
+    .recurso-actions {
+        display: none !important;
+    }
+    
+    .hero {
+        background: white !important;
+        color: black !important;
+        padding: 1rem 0 !important;
+    }
+    
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .recurso-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+}
+
+/* ===== ACCESIBILIDAD - TEXTO GRANDE ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== UTILIDADES RESPONSIVE ===== */
+.hidden-mobile {
+    display: block;
+}
+
+.visible-mobile {
+    display: none;
+}
+
+.hidden-tablet {
+    display: block;
+}
+
+.visible-tablet {
+    display: none;
+}
+
+/* Ocultar elementos en móviles */
+@media (max-width: 768px) {
+    .hidden-mobile {
+        display: none !important;
+    }
+    
+    .visible-mobile {
+        display: block !important;
+    }
+}
+
+/* Ocultar elementos en tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .hidden-tablet {
+        display: none !important;
+    }
+    
+    .visible-tablet {
+        display: block !important;
+    }
+}
+
+/* Grid responsive automático */
+.auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+}
+
+/* Flex responsive */
+.flex-responsive {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+.flex-responsive > * {
+    flex: 1 1 300px;
+}
+
+/* Texto responsive */
+.text-responsive {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.heading-responsive {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* Espaciado responsive */
+.spacing-responsive {
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+/* Contenedores fluidos */
+.container-fluid {
+    width: 100%;
+    padding: 0 var(--space-md);
+}
+
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 0 var(--space-sm);
+    }
+}
+
+/* Imágenes responsive */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Videos responsive */
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-responsive iframe,
+.video-responsive video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Tablas responsive */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Modal responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: var(--space-sm);
+        width: calc(100% - var(--space-sm) * 2);
+    }
+    
+    .modal-body {
+        padding: var(--space-md);
+    }
+}
+
+/* Navegación móvil mejorada */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--uniajc-white);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links a {
+        justify-content: center;
+        padding: var(--space-md);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+}

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Recurso - REDA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <span>REDA</span>
+                </div>
+                <div class="logo-text">
+                    EDUCA <span>DIGITAL</span>
+                </div>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="recursos.html"><i class="fas fa-book"></i> Recursos</a></li>
+                <li><a href="recursos.html"><i class="fas fa-graduation-cap"></i> Secciones</a></li>
+                <li><a href="subir-recurso.html" class="active"><i class="fas fa-upload"></i> Subir Recurso</a></li>
+                <li><a href="comunidad.html"><i class="fas fa-users"></i> Comunidad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="subir-recurso">
+        <div class="container">
+            <!-- Navegación -->
+            <nav class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Subir Recurso</span>
+            </nav>
+
+            <!-- Header -->
+            <section class="subir-header">
+                <h1>Subir Nuevo Recurso Educativo</h1>
+                <p>Comparte tus materiales educativos con la comunidad</p>
+            </section>
+
+            <!-- Formulario de Subida -->
+            <section class="formulario-subida">
+                <form id="form-subir-recurso" class="form-recurso">
+                    <!-- Información Básica -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-info-circle"></i> Información Básica</h2>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="titulo">Título del Recurso *</label>
+                                <input type="text" id="titulo" name="titulo" required 
+                                       placeholder="Ej: Introducción a la Programación en Java">
+                                <small>Describe claramente el contenido del recurso</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="autor">Autor *</label>
+                                <input type="text" id="autor" name="autor" required 
+                                       placeholder="Ej: Prof. Carlos Mendoza">
+                                <small>Nombre del creador del recurso</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="facultad">Facultad *</label>
+                                <select id="facultad" name="facultad" required>
+                                    <option value="">Selecciona una facultad</option>
+                                    <option value="Ingeniería">Ingeniería</option>
+                                    <option value="Ciencias de la Salud">Ciencias de la Salud</option>
+                                    <option value="Educación">Educación</option>
+                                    <option value="Administración">Administración</option>
+                                    <option value="Derecho">Derecho</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="programa">Programa Académico</label>
+                                <input type="text" id="programa" name="programa" 
+                                       placeholder="Ej: Ingeniería de Sistemas">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nivel">Nivel Educativo *</label>
+                                <select id="nivel" name="nivel" required>
+                                    <option value="">Selecciona un nivel</option>
+                                    <option value="Pregrado">Pregrado</option>
+                                    <option value="Posgrado">Posgrado</option>
+                                    <option value="Educación Continua">Educación Continua</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 1: Objetivo -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-bullseye"></i> 1. Objetivo de Aprendizaje</h2>
+                        
+                        <div class="form-group">
+                            <label for="objetivo-descripcion">Descripción del Objetivo *</label>
+                            <textarea id="objetivo-descripcion" name="objetivo-descripcion" 
+                                      rows="4" required
+                                      placeholder="Describe qué aprenderán los estudiantes con este recurso..."></textarea>
+                            <small>Explica claramente qué competencias desarrollará el estudiante</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Competencias a Desarrollar *</label>
+                            <div class="competencias-container">
+                                <div class="competencias-input">
+                                    <input type="text" id="nueva-competencia" 
+                                           placeholder="Ej: Variables y tipos de datos">
+                                    <button type="button" class="btn btn-sm btn-outline" 
+                                            onclick="agregarCompetencia()">
+                                        <i class="fas fa-plus"></i> Agregar
+                                    </button>
+                                </div>
+                                <div class="competencias-list" id="competencias-list">
+                                    <!-- Las competencias se agregarán aquí -->
+                                </div>
+                            </div>
+                            <small>Agrega al menos 2 competencias específicas</small>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2: Contenido -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-file"></i> 2. Contenido Principal</h2>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="tipo-contenido">Tipo de Contenido *</label>
+                                <select id="tipo-contenido" name="tipo-contenido" required 
+                                        onchange="mostrarCamposContenido()">
+                                    <option value="">Selecciona el tipo</option>
+                                    <option value="video">Video</option>
+                                    <option value="infografia">Infografía</option>
+                                    <option value="pdf">Documento PDF</option>
+                                    <option value="simulacion">Simulación</option>
+                                    <option value="presentacion">Presentación</option>
+                                    <option value="documento">Documento de Texto</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="duracion">Duración Estimada *</label>
+                                <input type="text" id="duracion" name="duracion" required 
+                                       placeholder="Ej: 15:30 o 45 minutos">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="formato">Formato del Archivo</label>
+                                <input type="text" id="formato" name="formato" 
+                                       placeholder="Ej: MP4, PDF, PPTX">
+                            </div>
+                        </div>
+
+                        <!-- Campos dinámicos según tipo de contenido -->
+                        <div id="campos-contenido">
+                            <div class="form-group">
+                                <label for="url-contenido">URL del Contenido *</label>
+                                <input type="url" id="url-contenido" name="url-contenido" 
+                                       placeholder="https://ejemplo.com/recurso">
+                                <small>Enlace directo al recurso o archivo</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="thumbnail">Miniatura (Opcional)</label>
+                                <input type="url" id="thumbnail" name="thumbnail" 
+                                       placeholder="https://ejemplo.com/miniatura.jpg">
+                                <small>URL de imagen para previsualización</small>
+                            </div>
+                        </div>
+
+                        <!-- Subida de archivos -->
+                        <div class="upload-area" id="upload-area">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h4>O sube tu archivo directamente</h4>
+                            <p>Arrastra el archivo aquí o haz clic para seleccionar</p>
+                            <input type="file" id="archivo-recurso" 
+                                   accept=".mp4,.pdf,.ppt,.pptx,.doc,.docx,.jpg,.png">
+                            <div class="upload-info" id="upload-info">
+                                <span>Tamaño máximo: 100MB</span>
+                                <span>Formatos permitidos: MP4, PDF, PPT, DOC, JPG, PNG</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3: Implementación -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-tools"></i> 3. Guía de Implementación</h2>
+                        
+                        <div class="form-group">
+                            <label for="guia-docente">Guía para el Docente</label>
+                            <textarea id="guia-docente" name="guia-docente" rows="4"
+                                      placeholder="Instrucciones para usar este recurso en clase..."></textarea>
+                            <small>¿Cómo puede un docente implementar este material?</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guia-estudiante">Guía para el Estudiante *</label>
+                            <textarea id="guia-estudiante" name="guia-estudiante" rows="4" required
+                                      placeholder="Pasos para que el estudiante use este recurso..."></textarea>
+                            <small>Instrucciones claras para el aprendizaje autónomo</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tiempo-estimado">Tiempo Estimado de Uso *</label>
+                            <input type="text" id="tiempo-estimado" name="tiempo-estimado" required 
+                                   placeholder="Ej: 2 horas">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Materiales Necesarios</label>
+                            <div class="materiales-container">
+                                <div class="materiales-input">
+                                    <input type="text" id="nuevo-material" 
+                                           placeholder="Ej: Computador con acceso a internet">
+                                    <button type="button" class="btn btn-sm btn-outline" 
+                                            onclick="agregarMaterial()">
+                                        <i class="fas fa-plus"></i> Agregar
+                                    </button>
+                                </div>
+                                <div class="materiales-list" id="materiales-list">
+                                    <!-- Los materiales se agregarán aquí -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prerrequisitos">Prerrequisitos</label>
+                            <textarea id="prerrequisitos" name="prerrequisitos" rows="3"
+                                      placeholder="Conocimientos previos necesarios..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Paso 4: Evaluación -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-check-circle"></i> 4. Sistema de Evaluación</h2>
+                        
+                        <div class="form-group">
+                            <label for="tipo-evaluacion">Tipo de Evaluación</label>
+                            <select id="tipo-evaluacion" name="tipo-evaluacion"
+                                    onchange="mostrarCamposEvaluacion()">
+                                <option value="ninguna">Sin evaluación</option>
+                                <option value="cuestionario">Cuestionario</option>
+                                <option value="actividad">Actividad Práctica</option>
+                                <option value="proyecto">Proyecto</option>
+                            </select>
+                        </div>
+
+                        <!-- Campos dinámicos para evaluación -->
+                        <div id="campos-evaluacion">
+                            <div class="form-group">
+                                <label for="puntaje-aprobacion">Puntaje Mínimo para Aprobar (%)</label>
+                                <input type="number" id="puntaje-aprobacion" name="puntaje-aprobacion" 
+                                       min="0" max="100" value="70">
+                            </div>
+
+                            <!-- Sección para preguntas (solo para cuestionario) -->
+                            <div id="seccion-preguntas" class="hidden">
+                                <div class="preguntas-header">
+                                    <h4>Preguntas del Cuestionario</h4>
+                                    <button type="button" class="btn btn-sm btn-outline" 
+                                            onclick="agregarPregunta()">
+                                        <i class="fas fa-plus"></i> Agregar Pregunta
+                                    </button>
+                                </div>
+                                <div class="preguntas-list" id="preguntas-list">
+                                    <!-- Las preguntas se agregarán aquí -->
+                                </div>
+                            </div>
+
+                            <!-- Sección para actividad/proyecto -->
+                            <div id="seccion-actividad" class="hidden">
+                                <div class="form-group">
+                                    <label for="descripcion-evaluacion">Descripción de la Evaluación</label>
+                                    <textarea id="descripcion-evaluacion" name="descripcion-evaluacion" 
+                                              rows="4" placeholder="Describe la actividad o proyecto..."></textarea>
+                                </div>
+
+                                <div class="form-group" id="requisitos-container">
+                                    <label>Requisitos (solo para proyectos)</label>
+                                    <div class="requisitos-input">
+                                        <input type="text" id="nuevo-requisito" 
+                                               placeholder="Ej: Implementar al menos 3 clases">
+                                        <button type="button" class="btn btn-sm btn-outline" 
+                                                onclick="agregarRequisito()">
+                                            <i class="fas fa-plus"></i> Agregar
+                                        </button>
+                                    </div>
+                                    <div class="requisitos-list" id="requisitos-list">
+                                        <!-- Los requisitos se agregarán aquí -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metadatos -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-tags"></i> Metadatos</h2>
+                        
+                        <div class="form-group">
+                            <label for="etiquetas">Etiquetas *</label>
+                            <input type="text" id="etiquetas" name="etiquetas" required 
+                                   placeholder="programación, java, poo, algoritmos">
+                            <small>Separa las etiquetas con comas. Mínimo 3 etiquetas.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcion-corta">Descripción Corta *</label>
+                            <textarea id="descripcion-corta" name="descripcion-corta" 
+                                      rows="3" required maxlength="160"
+                                      placeholder="Breve descripción para motores de búsqueda..."></textarea>
+                            <small>Máximo 160 caracteres. Aparecerá en los resultados de búsqueda.</small>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="destacado" name="destacado">
+                            <label for="destacado">Marcar como recurso destacado</label>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="publico" name="publico" checked>
+                            <label for="publico">Hacer recurso público</label>
+                        </div>
+                    </div>
+
+                    <!-- Botones de Envío -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="previsualizarRecurso()">
+                            <i class="fas fa-eye"></i> Previsualizar
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-upload"></i> Subir Recurso
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>UNIAJC Educa Digital</h3>
+                    <p>Plataforma oficial de recursos educativos de la Universidad Antonio José Camacho</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="#facultades">Facultades</a></li>
+                        <li><a href="subir-recurso.html">Subir Recurso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Cali, Colombia</p>
+                    <p><i class="fas fa-phone"></i> +57 (2) 555 1234</p>
+                    <p><i class="fas fa-envelope"></i> educadigital@uniajc.edu.co</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Universidad Antonio José Camacho. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Previsualización -->
+    <div id="modal-previsualizacion" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Previsualización del Recurso</h3>
+                <button class="modal-close" onclick="cerrarModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-previsualizacion-body">
+                <!-- La previsualización se cargará aquí -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" onclick="cerrarModal()">Volver al Formulario</button>
+                <button class="btn btn-primary" onclick="document.getElementById('form-subir-recurso').submit()">
+                    <i class="fas fa-upload"></i> Confirmar Subida
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/upload.js"></script>
+</body>
+</html>

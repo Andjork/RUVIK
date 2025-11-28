@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Recurso - REDA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <span>UNIAJC</span>
+                </div>
+                <div class="logo-text">
+                    REDA <span></span>
+                </div>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="recursos.html"><i class="fas fa-book"></i> Recursos</a></li>
+                <li><a href="secciones.html"><i class="fas fa-graduation-cap"></i> Secciones</a></li>
+                <li><a href="subir-recurso.html"><i class="fas fa-upload"></i> Subir Recurso</a></li>
+                <li><a href="comunidad.html"><i class="fas fa-users"></i> Comunidad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="detalle-recurso">
+        <div class="container">
+            <!-- Navegación -->
+            <nav class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="recursos.html">Recursos</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="breadcrumb-titulo">Cargando...</span>
+            </nav>
+
+            <!-- Header del Recurso -->
+            <section class="recurso-header-detalle">
+                <div class="recurso-badge-tipo">
+                    <span class="badge" id="badge-tipo">
+                        <i class="fas fa-file"></i> Cargando...
+                    </span>
+                    <span class="recurso-facultad" id="facultad-recurso">Secciones</span>
+                </div>
+                
+                <h1 id="recurso-titulo">Cargando recurso...</h1>
+                
+                <div class="recurso-meta-detalle">
+                    <div class="meta-item">
+                        <i class="fas fa-user"></i>
+                        <span>Autor: <strong id="recurso-autor">Cargando...</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Fecha: <strong id="recurso-fecha">Cargando...</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Duración: <strong id="recurso-duracion">Cargando...</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-eye"></i>
+                        <span>Visitas: <strong id="recurso-visitas">0</strong></span>
+                    </div>
+                </div>
+
+                <div class="recurso-actions">
+                    <button class="btn btn-primary" onclick="app.comenzarRecurso()">
+                        <i class="fas fa-play"></i> Comenzar Recurso
+                    </button>
+                    <button class="btn btn-outline" onclick="app.descargarRecurso()">
+                        <i class="fas fa-download"></i> Descargar
+                    </button>
+                    <button class="btn btn-outline" onclick="app.compartirRecurso()">
+                        <i class="fas fa-share"></i> Compartir
+                    </button>
+                </div>
+            </section>
+
+            <!-- Sistema de Pasos -->
+            <section class="sistema-pasos">
+                <!-- Paso 1: Objetivo -->
+                <div class="paso-card active" id="paso-1">
+                    <div class="paso-header">
+                        <div class="paso-numero">1</div>
+                        <h2>Objetivo de Aprendizaje</h2>
+                    </div>
+                    <div class="paso-contenido">
+                        <h3 class="objetivo-titulo" id="objetivo-titulo">Cargando objetivo...</h3>
+                        <p id="objetivo-descripcion">Cargando descripción del objetivo...</p>
+                        
+                        <div class="competencias-list">
+                            <h4>Competencias a Desarrollar</h4>
+                            <div class="competencias-grid" id="competencias-grid">
+                                <!-- Las competencias se cargarán aquí -->
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary" onclick="app.siguientePaso(1)">
+                                Continuar al Contenido <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 2: Contenido Principal -->
+                <div class="paso-card" id="paso-2">
+                    <div class="paso-header">
+                        <div class="paso-numero">2</div>
+                        <h2>Contenido Principal</h2>
+                    </div>
+                    <div class="paso-contenido">
+                        <div class="contenido-principal" id="contenido-principal">
+                            <div class="contenido-placeholder">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Cargando contenido...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contenido-info mt-4">
+                            <h4>Información del Contenido</h4>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span>Tipo:</span>
+                                    <span id="info-tipo">Cargando...</span>
+                                </div>
+                                <div class="info-item">
+                                    <span>Duración:</span>
+                                    <span id="info-duracion">Cargando...</span>
+                                </div>
+                                <div class="info-item">
+                                    <span>Formato:</span>
+                                    <span id="info-formato">Cargando...</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline" onclick="app.siguientePaso(2)">
+                                <i class="fas fa-arrow-left"></i> Anterior
+                            </button>
+                            <button class="btn btn-primary" onclick="app.siguientePaso(2)">
+                                Continuar a Implementación <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 3: Implementación -->
+                <div class="paso-card" id="paso-3">
+                    <div class="paso-header">
+                        <div class="paso-numero">3</div>
+                        <h2>Guía de Implementación</h2>
+                    </div>
+                    <div class="paso-contenido">
+                        <div class="implementacion-grid">
+                            <div class="implementacion-item">
+                                <div class="implementacion-icon">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <div class="implementacion-content">
+                                    <h4>Para el Docente</h4>
+                                    <p id="guia-docente">Cargando guía para docentes...</p>
+                                </div>
+                            </div>
+                            
+                            <div class="implementacion-item">
+                                <div class="implementacion-icon">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="implementacion-content">
+                                    <h4>Para el Estudiante</h4>
+                                    <p id="guia-estudiante">Cargando guía para estudiantes...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="materiales-requeridos mt-4">
+                            <h4>Materiales Necesarios</h4>
+                            <div class="materiales-list" id="materiales-list">
+                                <!-- Los materiales se cargarán aquí -->
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline" onclick="app.siguientePaso(3)">
+                                <i class="fas fa-arrow-left"></i> Anterior
+                            </button>
+                            <button class="btn btn-primary" onclick="app.siguientePaso(3)">
+                                Continuar a Evaluación <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 4: Evaluación -->
+                <div class="paso-card" id="paso-4">
+                    <div class="paso-header">
+                        <div class="paso-numero">4</div>
+                        <h2>Evaluación del Aprendizaje</h2>
+                    </div>
+                    <div class="paso-contenido">
+                        <div class="evaluacion-intro">
+                            <h3 id="evaluacion-descripcion">Cargando evaluación...</h3>
+                            <div class="evaluacion-info">
+                                <span><strong>Puntaje mínimo:</strong> <span id="puntaje-minimo">70%</span></span>
+                            </div>
+                        </div>
+
+                        <div id="contenido-evaluacion">
+                            <!-- Aquí se cargará el cuestionario o actividad -->
+                            <div class="evaluacion-placeholder" id="evaluacion-placeholder">
+                                <i class="fas fa-tasks"></i>
+                                <h4>No hay evaluación disponible</h4>
+                                <p>Este recurso no incluye una evaluación formal.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="evaluacion-actions">
+                            <button class="btn btn-outline" onclick="app.siguientePaso(4)">
+                                <i class="fas fa-arrow-left"></i> Anterior
+                            </button>
+                            <button class="btn btn-success" onclick="app.finalizarRecurso()">
+                                <i class="fas fa-check"></i> Finalizar Recurso
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recursos Relacionados -->
+            <section class="recursos-relacionados">
+                <h2>Recursos Relacionados</h2>
+                <div class="recursos-grid" id="recursos-relacionados">
+                    <!-- Los recursos relacionados se cargarán aquí -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>UNIAJC Educa Digital</h3>
+                    <p>Plataforma oficial de recursos educativos de la Universidad Antonio José Camacho</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="subir-recurso.html">Subir Recurso</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/detalle-recurso.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Recursos - REDA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <span>UNIAJC</span>
+                </div>
+                <div class="logo-text">
+                    REDA <span></span>
+                </div>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="recursos.html" class="active"><i class="fas fa-book"></i> Recursos</a></li>
+                <li><a href="secciones.html"><i class="fas fa-graduation-cap"></i> Secciones</a></li>
+                <li><a href="subir-recurso.html"><i class="fas fa-upload"></i> Subir Recurso</a></li>
+                <li><a href="comunidad.html"><i class="fas fa-users"></i> Comunidad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section para Recursos -->
+    <section class="hero" style="padding: 3rem 2rem;">
+        <div class="hero-content">
+            <h1>Catálogo de <span>Recursos</span></h1>
+            <p>Explora todos los recursos educativos disponibles</p>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar recursos, materiales, cursos...">
+                <button class="btn btn-primary" onclick="app.filtrarYMostrarRecursos()">
+                    <i class="fas fa-search"></i> Buscar
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="filtros">
+        <div class="container">
+            <div class="filtros-container">
+                <div class="filtro-group">
+                    <label for="filtroFacultad"><i class="fas fa-university"></i> Secciones:</label>
+                    <select id="filtroFacultad" onchange="app.aplicarFiltroFacultad(this.value)">
+                        <option value="">Todas las Secciones</option>
+                        <option value="ingenieria">Ingeniería</option>
+                        <option value="salud">Ciencias de la Salud</option>
+                        <option value="educacion">Educación</option>
+                    </select>
+                </div>
+                
+                <div class="filtro-group">
+                    <label for="filtroTipo"><i class="fas fa-file"></i> Tipo:</label>
+                    <select id="filtroTipo" onchange="app.aplicarFiltroTipo(this.value)">
+                        <option value="">Todos los tipos</option>
+                        <option value="video">Video</option>
+                        <option value="infografia">Infografía</option>
+                        <option value="pdf">PDF</option>
+                        <option value="simulacion">Simulación</option>
+                    </select>
+                </div>
+                
+                <div class="filtro-group">
+                    <label for="filtroNivel"><i class="fas fa-graduation-cap"></i> Nivel:</label>
+                    <select id="filtroNivel" onchange="app.aplicarFiltroNivel(this.value)">
+                        <option value="">Todos los niveles</option>
+                        <option value="Pregrado">Pregrado</option>
+                        <option value="Posgrado">Posgrado</option>
+                        <option value="Educación Continua">Educación Continua</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-outline" onclick="app.limpiarFiltros()">
+                    <i class="fas fa-times"></i> Limpiar Filtros
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados -->
+    <section class="resultados">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="resultadosTitulo">Todos los Recursos</h2>
+                <div class="resultados-info">
+                    <span id="contadorRecursos">0 recursos encontrados</span>
+                </div>
+            </div>
+            
+            <div class="recursos-grid" id="recursos-grid">
+                <!-- Los recursos se cargarán aquí dinámicamente -->
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Cargando recursos...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>UNIAJC Educa Digital</h3>
+                    <p>Plataforma oficial de recursos educativos de la Universidad Antonio José Camacho</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="secciones.html">Secciones</a></li>
+                        <li><a href="subir-recurso.html">Subir Recurso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Cali, Colombia</p>
+                    <p><i class="fas fa-phone"></i> +57 (2) 555 1234</p>
+                    <p><i class="fas fa-envelope"></i> educadigital@correo.edu.co</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; REDA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/recursos.js"></script>
+</body>
+</html>

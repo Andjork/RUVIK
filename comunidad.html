@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad - REDA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <span>REDA</span>
+                </div>
+                <div class="logo-text">
+                    RECURSOS <span>EDUCATIVOS</span>
+                </div>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="recursos.html"><i class="fas fa-book"></i> Recursos</a></li>
+                <li><a href="secciones.html"><i class="fas fa-graduation-cap"></i> Secciones</a></li>
+                <li><a href="subir-recurso.html"><i class="fas fa-upload"></i> Subir Recurso</a></li>
+                <li><a href="comunidad.html" class="active"><i class="fas fa-users"></i> Comunidad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Comunidad <span>Educativa</span></h1>
+            <p>Conecta, comparte y aprende con otros educadores</p>
+        </div>
+    </section>
+
+    <!-- Estadísticas de la Comunidad -->
+    <section class="estadisticas-comunidad">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>1,250+</h3>
+                        <p>Miembros Activos</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>450+</h3>
+                        <p>Recursos Compartidos</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>890+</h3>
+                        <p>Discusiones Activas</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>15+</h3>
+                        <p>Secciones Académicas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Foros de Discusión -->
+    <section class="foros-comunidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Foros de Discusión</h2>
+                <p>Participa en conversaciones sobre educación y recursos</p>
+            </div>
+
+            <div class="foros-grid">
+                <div class="foro-card">
+                    <div class="foro-header">
+                        <h3><i class="fas fa-laptop-code"></i> Tecnología Educativa</h3>
+                        <span class="foro-stats">245 discusiones</span>
+                    </div>
+                    <p>Comparte experiencias sobre herramientas digitales, plataformas y metodologías tech</p>
+                    <div class="foro-actions">
+                        <button class="btn btn-outline btn-sm" onclick="unirseForo('tecnologia')">
+                            <i class="fas fa-door-open"></i> Unirse al Foro
+                        </button>
+                    </div>
+                </div>
+
+                <div class="foro-card">
+                    <div class="foro-header">
+                        <h3><i class="fas fa-chalkboard-teacher"></i> Metodologías de Enseñanza</h3>
+                        <span class="foro-stats">189 discusiones</span>
+                    </div>
+                    <p>Discute sobre diferentes enfoques pedagógicos y estrategias de enseñanza</p>
+                    <div class="foro-actions">
+                        <button class="btn btn-outline btn-sm" onclick="unirseForo('metodologias')">
+                            <i class="fas fa-door-open"></i> Unirse al Foro
+                        </button>
+                    </div>
+                </div>
+
+                <div class="foro-card">
+                    <div class="foro-header">
+                        <h3><i class="fas fa-tools"></i> Recursos y Materiales</h3>
+                        <span class="foro-stats">312 discusiones</span>
+                    </div>
+                    <p>Comparte y descubre nuevos recursos educativos y materiales didácticos</p>
+                    <div class="foro-actions">
+                        <button class="btn btn-outline btn-sm" onclick="unirseForo('recursos')">
+                            <i class="fas fa-door-open"></i> Unirse al Foro
+                        </button>
+                    </div>
+                </div>
+
+                <div class="foro-card">
+                    <div class="foro-header">
+                        <h3><i class="fas fa-question-circle"></i> Preguntas y Ayuda</h3>
+                        <span class="foro-stats">156 discusiones</span>
+                    </div>
+                    <p>Resuelve dudas y obtén ayuda de la comunidad sobre el uso de la plataforma</p>
+                    <div class="foro-actions">
+                        <button class="btn btn-outline btn-sm" onclick="unirseForo('ayuda')">
+                            <i class="fas fa-door-open"></i> Unirse al Foro
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eventos y Webinars -->
+    <section class="eventos-comunidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Próximos Eventos</h2>
+                <p>Webinars, talleres y encuentros de la comunidad</p>
+            </div>
+
+            <div class="eventos-grid">
+                <div class="evento-card">
+                    <div class="evento-fecha">
+                        <span class="evento-dia">15</span>
+                        <span class="evento-mes">Mar</span>
+                    </div>
+                    <div class="evento-info">
+                        <h3>Webinar: IA en Educación</h3>
+                        <p><i class="fas fa-clock"></i> 4:00 PM - 5:30 PM</p>
+                        <p><i class="fas fa-video"></i> Online - Zoom</p>
+                        <button class="btn btn-primary btn-sm">
+                            <i class="fas fa-calendar-plus"></i> Agendar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="evento-card">
+                    <div class="evento-fecha">
+                        <span class="evento-dia">22</span>
+                        <span class="evento-mes">Mar</span>
+                    </div>
+                    <div class="evento-info">
+                        <h3>Taller: Creación de REDAs</h3>
+                        <p><i class="fas fa-clock"></i> 10:00 AM - 12:00 PM</p>
+                        <p><i class="fas fa-video"></i> Online - Meet</p>
+                        <button class="btn btn-primary btn-sm">
+                            <i class="fas fa-calendar-plus"></i> Agendar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="evento-card">
+                    <div class="evento-fecha">
+                        <span class="evento-dia">05</span>
+                        <span class="evento-mes">Abr</span>
+                    </div>
+                    <div class="evento-info">
+                        <h3>Encuentro: Innovación Educativa</h3>
+                        <p><i class="fas fa-clock"></i> 2:00 PM - 4:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Presencial</p>
+                        <button class="btn btn-primary btn-sm">
+                            <i class="fas fa-calendar-plus"></i> Agendar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educadores Destacados -->
+    <section class="educadores-comunidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Educadores Destacados</h2>
+                <p>Conoce a los miembros más activos de nuestra comunidad</p>
+            </div>
+
+            <div class="educadores-grid">
+                <div class="educador-card">
+                    <div class="educador-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Dra. María Rodríguez</h3>
+                    <p class="educador-especialidad">Ciencias de la Salud</p>
+                    <div class="educador-stats">
+                        <span><i class="fas fa-book"></i> 28 recursos</span>
+                        <span><i class="fas fa-comments"></i> 45 aportes</span>
+                    </div>
+                    <button class="btn btn-outline btn-sm">
+                        <i class="fas fa-eye"></i> Ver Perfil
+                    </button>
+                </div>
+
+                <div class="educador-card">
+                    <div class="educador-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Prof. Carlos Mendoza</h3>
+                    <p class="educador-especialidad">Ingeniería de Sistemas</p>
+                    <div class="educador-stats">
+                        <span><i class="fas fa-book"></i> 32 recursos</span>
+                        <span><i class="fas fa-comments"></i> 67 aportes</span>
+                    </div>
+                    <button class="btn btn-outline btn-sm">
+                        <i class="fas fa-eye"></i> Ver Perfil
+                    </button>
+                </div>
+
+                <div class="educador-card">
+                    <div class="educador-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Lic. Ana García</h3>
+                    <p class="educador-especialidad">Educación</p>
+                    <div class="educador-stats">
+                        <span><i class="fas fa-book"></i> 25 recursos</span>
+                        <span><i class="fas fa-comments"></i> 38 aportes</span>
+                    </div>
+                    <button class="btn btn-outline btn-sm">
+                        <i class="fas fa-eye"></i> Ver Perfil
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>REDA - Recursos Educativos Digitales</h3>
+                    <p>Plataforma de recursos educativos digitales</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="secciones.html">Secciones</a></li>
+                        <li><a href="comunidad.html">Comunidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 REDA - Recursos Educativos Digitales</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/comunidad.js"></script>
+</body>
+</html>

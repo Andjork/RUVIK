@@ -1,0 +1,1 @@
+Carpeta para imágenes de recursos. Añade las imágenes aquí y referencia desde `data/recursos.json`.

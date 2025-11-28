@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secciones - REDA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <span>REDA</span>
+                </div>
+                <div class="logo-text">
+                    RECURSOS <span>EDUCATIVOS</span>
+                </div>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="recursos.html"><i class="fas fa-book"></i> Recursos</a></li>
+                <li><a href="secciones.html" class="active"><i class="fas fa-graduation-cap"></i> Secciones</a></li>
+                <li><a href="subir-recurso.html"><i class="fas fa-upload"></i> Subir Recurso</a></li>
+                <li><a href="comunidad.html"><i class="fas fa-users"></i> Comunidad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Explora por <span>Secciones</span></h1>
+            <p>Encuentra recursos organizados por áreas de conocimiento</p>
+        </div>
+    </section>
+
+    <!-- Secciones Académicas -->
+    <section class="secciones">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestras Secciones</h2>
+                <p>Selecciona una sección para explorar sus recursos educativos</p>
+            </div>
+
+            <div class="secciones-grid">
+                <!-- Ingeniería y Tecnología -->
+                <div class="seccion-card" data-seccion="ingenieria">
+                    <div class="seccion-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Ingeniería y Tecnología</h3>
+                    <p>Recursos de programación, ingeniería de software, redes y tecnología</p>
+                    <div class="seccion-stats">
+                        <span><i class="fas fa-book"></i> 45 recursos</span>
+                        <span><i class="fas fa-users"></i> 8 programas</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="cargarSeccion('ingenieria')">
+                        Explorar Sección
+                    </button>
+                </div>
+
+                <!-- Ciencias de la Salud -->
+                <div class="seccion-card" data-seccion="salud">
+                    <div class="seccion-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Ciencias de la Salud</h3>
+                    <p>Materiales de medicina, enfermería, odontología y ciencias médicas</p>
+                    <div class="seccion-stats">
+                        <span><i class="fas fa-book"></i> 38 recursos</span>
+                        <span><i class="fas fa-users"></i> 6 programas</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="cargarSeccion('salud')">
+                        Explorar Sección
+                    </button>
+                </div>
+
+                <!-- Educación y Humanidades -->
+                <div class="seccion-card" data-seccion="educacion">
+                    <div class="seccion-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Educación y Humanidades</h3>
+                    <p>Recursos pedagógicos, literatura, historia y ciencias sociales</p>
+                    <div class="seccion-stats">
+                        <span><i class="fas fa-book"></i> 52 recursos</span>
+                        <span><i class="fas fa-users"></i> 7 programas</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="cargarSeccion('educacion')">
+                        Explorar Sección
+                    </button>
+                </div>
+
+                <!-- Ciencias Administrativas -->
+                <div class="seccion-card" data-seccion="administracion">
+                    <div class="seccion-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Ciencias Administrativas</h3>
+                    <p>Materiales de administración, contabilidad, marketing y negocios</p>
+                    <div class="seccion-stats">
+                        <span><i class="fas fa-book"></i> 29 recursos</span>
+                        <span><i class="fas fa-users"></i> 5 programas</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="cargarSeccion('administracion')">
+                        Explorar Sección
+                    </button>
+                </div>
+
+                <!-- Derecho y Ciencias Políticas -->
+                <div class="seccion-card" data-seccion="derecho">
+                    <div class="seccion-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Derecho y Ciencias Políticas</h3>
+                    <p>Recursos de legislación, ciencia política y relaciones internacionales</p>
+                    <div class="seccion-stats">
+                        <span><i class="fas fa-book"></i> 31 recursos</span>
+                        <span><i class="fas fa-users"></i> 4 programas</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="cargarSeccion('derecho')">
+                        Explorar Sección
+                    </button>
+                </div>
+
+                <!-- Ciencias Básicas -->
+                <div class="seccion-card" data-seccion="ciencias-basicas">
+                    <div class="seccion-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Ciencias Básicas</h3>
+                    <p>Matemáticas, física, química, biología y ciencias naturales</p>
+                    <div class="seccion-stats">
+                        <span><i class="fas fa-book"></i> 41 recursos</span>
+                        <span><i class="fas fa-users"></i> 9 programas</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="cargarSeccion('ciencias-basicas')">
+                        Explorar Sección
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recursos por Sección -->
+    <section class="recursos-seccion hidden" id="recursos-seccion">
+        <div class="container">
+            <div class="seccion-header">
+                <button class="btn btn-outline" onclick="volverASecciones()">
+                    <i class="fas fa-arrow-left"></i> Volver a Secciones
+                </button>
+                <h2 id="titulo-seccion">Sección</h2>
+                <p id="descripcion-seccion">Recursos de esta sección</p>
+            </div>
+
+            <div class="recursos-grid" id="recursos-seccion-grid">
+                <!-- Los recursos de la sección se cargarán aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>REDA - Recursos Educativos Digitales</h3>
+                    <p>Plataforma de recursos educativos digitales</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="secciones.html">Secciones</a></li>
+                        <li><a href="subir-recurso.html">Subir Recurso</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 REDA - Recursos Educativos Digitales</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/secciones.js"></script>
+</body>
+</html>

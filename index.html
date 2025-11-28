@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIAJC Educa Digital - Plataforma de Recursos Educativos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header con identidad UNIAJC -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <!-- <span>UNIAJC</span> -->
+                </div>
+                <div class="logo-text">
+                    REDA <span></span>
+                </div>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="recursos.html"><i class="fas fa-book"></i> Recursos</a></li>
+                <li><a href="secciones.html"><i class="fas fa-graduation-cap"></i> Facultades</a></li>
+                <li><a href="subir-recurso.html"><i class="fas fa-upload"></i> Subir Recurso</a></li>
+                <li><a href="comunidad.html"><i class="fas fa-users"></i> Comunidad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>REDA <span></span></h1>
+            <p>Plataforma oficial de recursos digitales REDA</p>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar recursos, materiales, cursos...">
+                <button class="btn btn-primary">
+                    <i class="fas fa-search"></i> Buscar
+                </button>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Recursos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Secciones</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Docentes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facultades UNIAJC -->
+    <section class="facultades" id="facultades">
+        <div class="container">
+            <h2 class="section-title">Secciones</h2>
+            <div class="facultades-grid">
+                <!-- Facultad de Ingeniería -->
+                <div class="facultad-card" data-facultad="ingenieria">
+                    <div class="facultad-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Ingeniería</h3>
+                    <p>Sistemas, Software, Industrial</p>
+                    <span class="recursos-count">n recursos</span>
+                </div>
+
+                <!-- Facultad de Ciencias de la Salud -->
+                <div class="facultad-card" data-facultad="salud">
+                    <div class="facultad-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Ciencias de la Salud</h3>
+                    <p>Enfermería, Fisioterapia</p>
+                    <span class="recursos-count">n recursos</span>
+                </div>
+
+                <!-- Facultad de Educación -->
+                <div class="facultad-card" data-facultad="educacion">
+                    <div class="facultad-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Educación</h3>
+                    <p>Licenciaturas, Pedagogía</p>
+                    <span class="recursos-count">n recursos</span>
+                </div>
+
+                <!-- Más facultades... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Recursos Destacados -->
+    <section class="destacados">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recursos Destacados</h2>
+                <a href="recursos.html" class="btn btn-outline">Ver todos</a>
+            </div>
+            
+            <div class="recursos-grid" id="recursos-destacados">
+                <!-- Los recursos se cargarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>REDA</h3>
+                    <p>Plataforma oficial de recursos educativos REDA</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="secciones.html">Secciones</a></li>
+                        <li><a href="subir-recurso.html">Subir Recurso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Cali, Colombia</p>
+                    <p><i class="fas fa-phone"></i> +57 (2) 555 1234</p>
+                    <p><i class="fas fa-envelope"></i> educadigital@correo.edu.co</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 REDA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/recursos.js"></script>
+</body>
+</html>

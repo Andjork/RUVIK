@@ -1,0 +1,1 @@
+Coloca videos educativos aquí. Si usas enlaces externos, manten una lista en `data/recursos.json`.

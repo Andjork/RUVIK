@@ -1,0 +1,99 @@
+{
+  "recursos": [
+    {
+      "id": "REC-001",
+      "titulo": "Introducción a la Programación en Java",
+      "facultad": "Ingeniería",
+      "programa": "Ingeniería de Sistemas",
+      "nivel": "Pregrado",
+      "autor": "Prof. Carlos Mendoza",
+      "fecha_creacion": "2024-01-15",
+      "objetivo": {
+        "descripcion": "Comprender los fundamentos de la programación orientada a objetos usando Java como lenguaje de programación",
+        "competencias": ["Variables y tipos de datos", "Estructuras de control", "POO básica", "Métodos y clases"]
+      },
+      "contenido": {
+        "tipo": "video",
+        "url": "assets/videos/java-intro.mp4",
+        "duracion": "15:30",
+        "formato": "MP4",
+        "thumbnail": "assets/images/java-thumb.jpg"
+      },
+      "implementacion": {
+        "guia_docente": "Este recurso puede utilizarse en las primeras semanas del curso de Programación I. Se recomienda complementar con ejercicios prácticos en clase.",
+        "guia_estudiante": "Ver el video completo y luego realizar los ejercicios propuestos en la plataforma. Duración estimada: 2 horas.",
+        "tiempo_estimado": "2 horas",
+        "materiales_necesarios": ["Computador", "JDK 11+", "IDE (Eclipse o IntelliJ)"],
+        "prerrequisitos": ["Conocimientos básicos de informática"]
+      },
+      "evaluacion": {
+        "tipo": "cuestionario",
+        "preguntas": [
+          {
+            "pregunta": "¿Qué es una clase en Java?",
+            "opciones": [
+              "Un tipo de dato primitivo",
+              "Una plantilla para crear objetos",
+              "Un método especial",
+              "Una variable global"
+            ],
+            "respuesta_correcta": 1
+          }
+        ],
+        "puntaje_aprobacion": 70
+      },
+      "metadata": {
+        "visitas": 150,
+        "valoracion": 4.5,
+        "descargas": 89,
+        "etiquetas": ["programación", "java", "poo", "ingeniería"],
+        "destacado": true
+      }
+    },
+    {
+      "id": "REC-002",
+      "titulo": "Anatomía del Sistema Cardiovascular",
+      "facultad": "Ciencias de la Salud",
+      "programa": "Enfermería",
+      "nivel": "Pregrado",
+      "autor": "Dra. María Rodríguez",
+      "fecha_creacion": "2024-01-10",
+      "objetivo": {
+        "descripcion": "Identificar las estructuras y funciones del sistema cardiovascular humano",
+        "competencias": ["Anatomía cardíaca", "Vasos sanguíneos", "Fisiología cardiovascular", "Sistema de conducción"]
+      },
+      "contenido": {
+        "tipo": "infografia",
+        "url": "assets/docs/cardiovascular-infografia.pdf",
+        "duracion": "25 minutos",
+        "formato": "PDF",
+        "thumbnail": "assets/images/cardio-thumb.jpg"
+      },
+      "implementacion": {
+        "guia_docente": "Utilizar como material de apoyo en clases de anatomía. Puede proyectarse y explicarse sección por sección.",
+        "guia_estudiante": "Estudiar la infografía y realizar el esquema propuesto. Repasar antes del examen práctico.",
+        "tiempo_estimado": "45 minutos",
+        "materiales_necesarios": ["Tablet o computador", "Software para PDF"],
+        "prerrequisitos": ["Conocimientos básicos de biología"]
+      },
+      "evaluacion": {
+        "tipo": "actividad",
+        "descripcion": "Crear un esquema del sistema cardiovascular identificando al menos 10 estructuras principales",
+        "puntaje_aprobacion": 80
+      },
+      "metadata": {
+        "visitas": 203,
+        "valoracion": 4.8,
+        "descargas": 145,
+        "etiquetas": ["anatomía", "cardiovascular", "enfermería", "salud"],
+        "destacado": true
+      }
+    }
+  ],
+  "estadisticas": {
+    "total_recursos": 2,
+    "total_visitas": 353,
+    "facultades": ["Ingeniería", "Ciencias de la Salud"],
+    "tipos_contenido": ["video", "infografia"]
+  }
+}
