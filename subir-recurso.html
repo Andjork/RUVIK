@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/genially-styles.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -21,7 +24,7 @@
                     EDUCA <span>DIGITAL</span>
                 </div>
             </div>
-            
+
             <ul class="nav-links">
                 <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
                 <li><a href="recursos.html"><i class="fas fa-book"></i> Recursos</a></li>
@@ -54,19 +57,19 @@
                     <!-- Información Básica -->
                     <div class="form-section">
                         <h2><i class="fas fa-info-circle"></i> Información Básica</h2>
-                        
+
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="titulo">Título del Recurso *</label>
-                                <input type="text" id="titulo" name="titulo" required 
-                                       placeholder="Ej: Introducción a la Programación en Java">
+                                <input type="text" id="titulo" name="titulo" required
+                                    placeholder="Ej: Introducción a la Programación en Java">
                                 <small>Describe claramente el contenido del recurso</small>
                             </div>
 
                             <div class="form-group">
                                 <label for="autor">Autor *</label>
-                                <input type="text" id="autor" name="autor" required 
-                                       placeholder="Ej: Prof. Carlos Mendoza">
+                                <input type="text" id="autor" name="autor" required
+                                    placeholder="Ej: Prof. Carlos Mendoza">
                                 <small>Nombre del creador del recurso</small>
                             </div>
 
@@ -84,8 +87,8 @@
 
                             <div class="form-group">
                                 <label for="programa">Programa Académico</label>
-                                <input type="text" id="programa" name="programa" 
-                                       placeholder="Ej: Ingeniería de Sistemas">
+                                <input type="text" id="programa" name="programa"
+                                    placeholder="Ej: Ingeniería de Sistemas">
                             </div>
 
                             <div class="form-group">
@@ -103,12 +106,11 @@
                     <!-- Paso 1: Objetivo -->
                     <div class="form-section">
                         <h2><i class="fas fa-bullseye"></i> 1. Objetivo de Aprendizaje</h2>
-                        
+
                         <div class="form-group">
                             <label for="objetivo-descripcion">Descripción del Objetivo *</label>
-                            <textarea id="objetivo-descripcion" name="objetivo-descripcion" 
-                                      rows="4" required
-                                      placeholder="Describe qué aprenderán los estudiantes con este recurso..."></textarea>
+                            <textarea id="objetivo-descripcion" name="objetivo-descripcion" rows="4" required
+                                placeholder="Describe qué aprenderán los estudiantes con este recurso..."></textarea>
                             <small>Explica claramente qué competencias desarrollará el estudiante</small>
                         </div>
 
@@ -116,10 +118,9 @@
                             <label>Competencias a Desarrollar *</label>
                             <div class="competencias-container">
                                 <div class="competencias-input">
-                                    <input type="text" id="nueva-competencia" 
-                                           placeholder="Ej: Variables y tipos de datos">
-                                    <button type="button" class="btn btn-sm btn-outline" 
-                                            onclick="agregarCompetencia()">
+                                    <input type="text" id="nueva-competencia"
+                                        placeholder="Ej: Variables y tipos de datos">
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="agregarCompetencia()">
                                         <i class="fas fa-plus"></i> Agregar
                                     </button>
                                 </div>
@@ -134,12 +135,12 @@
                     <!-- Paso 2: Contenido -->
                     <div class="form-section">
                         <h2><i class="fas fa-file"></i> 2. Contenido Principal</h2>
-                        
+
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="tipo-contenido">Tipo de Contenido *</label>
-                                <select id="tipo-contenido" name="tipo-contenido" required 
-                                        onchange="mostrarCamposContenido()">
+                                <select id="tipo-contenido" name="tipo-contenido" required
+                                    onchange="mostrarCamposContenido()">
                                     <option value="">Selecciona el tipo</option>
                                     <option value="video">Video</option>
                                     <option value="infografia">Infografía</option>
@@ -147,19 +148,20 @@
                                     <option value="simulacion">Simulación</option>
                                     <option value="presentacion">Presentación</option>
                                     <option value="documento">Documento de Texto</option>
+                                    <option value="enlace">Enlace Externo</option>
+                                    <option value="genially">Genially (Embed)</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="duracion">Duración Estimada *</label>
-                                <input type="text" id="duracion" name="duracion" required 
-                                       placeholder="Ej: 15:30 o 45 minutos">
+                                <input type="text" id="duracion" name="duracion" required
+                                    placeholder="Ej: 15:30 o 45 minutos">
                             </div>
 
                             <div class="form-group">
                                 <label for="formato">Formato del Archivo</label>
-                                <input type="text" id="formato" name="formato" 
-                                       placeholder="Ej: MP4, PDF, PPTX">
+                                <input type="text" id="formato" name="formato" placeholder="Ej: MP4, PDF, PPTX">
                             </div>
                         </div>
 
@@ -167,15 +169,23 @@
                         <div id="campos-contenido">
                             <div class="form-group">
                                 <label for="url-contenido">URL del Contenido *</label>
-                                <input type="url" id="url-contenido" name="url-contenido" 
-                                       placeholder="https://ejemplo.com/recurso">
-                                <small>Enlace directo al recurso o archivo</small>
+                                <input type="url" id="url-contenido" name="url-contenido"
+                                    placeholder="https://ejemplo.com/recurso">
+                                <small id="url-help-text">Enlace directo al recurso o archivo</small>
+                            </div>
+
+                            <!-- Campo específico para Genially -->
+                            <div class="form-group" id="genially-iframe-group" style="display: none;">
+                                <label for="genially-iframe">Código de Embed de Genially</label>
+                                <textarea id="genially-iframe" name="genially-iframe" rows="4"
+                                    placeholder="Pega aquí el código iframe completo de Genially..."></textarea>
+                                <small>Copia el código de inserción desde Genially (Compartir > Insertar)</small>
                             </div>
 
                             <div class="form-group">
                                 <label for="thumbnail">Miniatura (Opcional)</label>
-                                <input type="url" id="thumbnail" name="thumbnail" 
-                                       placeholder="https://ejemplo.com/miniatura.jpg">
+                                <input type="url" id="thumbnail" name="thumbnail"
+                                    placeholder="https://ejemplo.com/miniatura.jpg">
                                 <small>URL de imagen para previsualización</small>
                             </div>
                         </div>
@@ -185,8 +195,7 @@
                             <i class="fas fa-cloud-upload-alt"></i>
                             <h4>O sube tu archivo directamente</h4>
                             <p>Arrastra el archivo aquí o haz clic para seleccionar</p>
-                            <input type="file" id="archivo-recurso" 
-                                   accept=".mp4,.pdf,.ppt,.pptx,.doc,.docx,.jpg,.png">
+                            <input type="file" id="archivo-recurso" accept=".mp4,.pdf,.ppt,.pptx,.doc,.docx,.jpg,.png">
                             <div class="upload-info" id="upload-info">
                                 <span>Tamaño máximo: 100MB</span>
                                 <span>Formatos permitidos: MP4, PDF, PPT, DOC, JPG, PNG</span>
@@ -197,35 +206,34 @@
                     <!-- Paso 3: Implementación -->
                     <div class="form-section">
                         <h2><i class="fas fa-tools"></i> 3. Guía de Implementación</h2>
-                        
+
                         <div class="form-group">
                             <label for="guia-docente">Guía para el Docente</label>
                             <textarea id="guia-docente" name="guia-docente" rows="4"
-                                      placeholder="Instrucciones para usar este recurso en clase..."></textarea>
+                                placeholder="Instrucciones para usar este recurso en clase..."></textarea>
                             <small>¿Cómo puede un docente implementar este material?</small>
                         </div>
 
                         <div class="form-group">
                             <label for="guia-estudiante">Guía para el Estudiante *</label>
                             <textarea id="guia-estudiante" name="guia-estudiante" rows="4" required
-                                      placeholder="Pasos para que el estudiante use este recurso..."></textarea>
+                                placeholder="Pasos para que el estudiante use este recurso..."></textarea>
                             <small>Instrucciones claras para el aprendizaje autónomo</small>
                         </div>
 
                         <div class="form-group">
                             <label for="tiempo-estimado">Tiempo Estimado de Uso *</label>
-                            <input type="text" id="tiempo-estimado" name="tiempo-estimado" required 
-                                   placeholder="Ej: 2 horas">
+                            <input type="text" id="tiempo-estimado" name="tiempo-estimado" required
+                                placeholder="Ej: 2 horas">
                         </div>
 
                         <div class="form-group">
                             <label>Materiales Necesarios</label>
                             <div class="materiales-container">
                                 <div class="materiales-input">
-                                    <input type="text" id="nuevo-material" 
-                                           placeholder="Ej: Computador con acceso a internet">
-                                    <button type="button" class="btn btn-sm btn-outline" 
-                                            onclick="agregarMaterial()">
+                                    <input type="text" id="nuevo-material"
+                                        placeholder="Ej: Computador con acceso a internet">
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="agregarMaterial()">
                                         <i class="fas fa-plus"></i> Agregar
                                     </button>
                                 </div>
@@ -238,18 +246,17 @@
                         <div class="form-group">
                             <label for="prerrequisitos">Prerrequisitos</label>
                             <textarea id="prerrequisitos" name="prerrequisitos" rows="3"
-                                      placeholder="Conocimientos previos necesarios..."></textarea>
+                                placeholder="Conocimientos previos necesarios..."></textarea>
                         </div>
                     </div>
 
                     <!-- Paso 4: Evaluación -->
                     <div class="form-section">
                         <h2><i class="fas fa-check-circle"></i> 4. Sistema de Evaluación</h2>
-                        
+
                         <div class="form-group">
                             <label for="tipo-evaluacion">Tipo de Evaluación</label>
-                            <select id="tipo-evaluacion" name="tipo-evaluacion"
-                                    onchange="mostrarCamposEvaluacion()">
+                            <select id="tipo-evaluacion" name="tipo-evaluacion" onchange="mostrarCamposEvaluacion()">
                                 <option value="ninguna">Sin evaluación</option>
                                 <option value="cuestionario">Cuestionario</option>
                                 <option value="actividad">Actividad Práctica</option>
@@ -261,16 +268,15 @@
                         <div id="campos-evaluacion">
                             <div class="form-group">
                                 <label for="puntaje-aprobacion">Puntaje Mínimo para Aprobar (%)</label>
-                                <input type="number" id="puntaje-aprobacion" name="puntaje-aprobacion" 
-                                       min="0" max="100" value="70">
+                                <input type="number" id="puntaje-aprobacion" name="puntaje-aprobacion" min="0" max="100"
+                                    value="70">
                             </div>
 
                             <!-- Sección para preguntas (solo para cuestionario) -->
                             <div id="seccion-preguntas" class="hidden">
                                 <div class="preguntas-header">
                                     <h4>Preguntas del Cuestionario</h4>
-                                    <button type="button" class="btn btn-sm btn-outline" 
-                                            onclick="agregarPregunta()">
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="agregarPregunta()">
                                         <i class="fas fa-plus"></i> Agregar Pregunta
                                     </button>
                                 </div>
@@ -283,17 +289,17 @@
                             <div id="seccion-actividad" class="hidden">
                                 <div class="form-group">
                                     <label for="descripcion-evaluacion">Descripción de la Evaluación</label>
-                                    <textarea id="descripcion-evaluacion" name="descripcion-evaluacion" 
-                                              rows="4" placeholder="Describe la actividad o proyecto..."></textarea>
+                                    <textarea id="descripcion-evaluacion" name="descripcion-evaluacion" rows="4"
+                                        placeholder="Describe la actividad o proyecto..."></textarea>
                                 </div>
 
                                 <div class="form-group" id="requisitos-container">
                                     <label>Requisitos (solo para proyectos)</label>
                                     <div class="requisitos-input">
-                                        <input type="text" id="nuevo-requisito" 
-                                               placeholder="Ej: Implementar al menos 3 clases">
-                                        <button type="button" class="btn btn-sm btn-outline" 
-                                                onclick="agregarRequisito()">
+                                        <input type="text" id="nuevo-requisito"
+                                            placeholder="Ej: Implementar al menos 3 clases">
+                                        <button type="button" class="btn btn-sm btn-outline"
+                                            onclick="agregarRequisito()">
                                             <i class="fas fa-plus"></i> Agregar
                                         </button>
                                     </div>
@@ -308,19 +314,18 @@
                     <!-- Metadatos -->
                     <div class="form-section">
                         <h2><i class="fas fa-tags"></i> Metadatos</h2>
-                        
+
                         <div class="form-group">
                             <label for="etiquetas">Etiquetas *</label>
-                            <input type="text" id="etiquetas" name="etiquetas" required 
-                                   placeholder="programación, java, poo, algoritmos">
+                            <input type="text" id="etiquetas" name="etiquetas" required
+                                placeholder="programación, java, poo, algoritmos">
                             <small>Separa las etiquetas con comas. Mínimo 3 etiquetas.</small>
                         </div>
 
                         <div class="form-group">
                             <label for="descripcion-corta">Descripción Corta *</label>
-                            <textarea id="descripcion-corta" name="descripcion-corta" 
-                                      rows="3" required maxlength="160"
-                                      placeholder="Breve descripción para motores de búsqueda..."></textarea>
+                            <textarea id="descripcion-corta" name="descripcion-corta" rows="3" required maxlength="160"
+                                placeholder="Breve descripción para motores de búsqueda..."></textarea>
                             <small>Máximo 160 caracteres. Aparecerá en los resultados de búsqueda.</small>
                         </div>
 
@@ -363,7 +368,7 @@
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Enlaces Rápidos</h4>
                     <ul class="footer-links">
@@ -373,7 +378,7 @@
                         <li><a href="subir-recurso.html">Subir Recurso</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Contacto</h4>
                     <p><i class="fas fa-map-marker-alt"></i> Cali, Colombia</p>
@@ -381,7 +386,7 @@
                     <p><i class="fas fa-envelope"></i> educadigital@uniajc.edu.co</p>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2024 Universidad Antonio José Camacho. Todos los derechos reservados.</p>
             </div>
@@ -412,4 +417,5 @@
     <script src="js/main.js"></script>
     <script src="js/upload.js"></script>
 </body>
+
 </html>

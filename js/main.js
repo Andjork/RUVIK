@@ -4,11 +4,11 @@ class UNIAJCEducaDigital {
         this.recursos = [];
         this.filtrosActivos = {
             facultad: null,
-            tipo: null, 
+            tipo: null,
             nivel: null,
             busqueda: ''
         };
-        
+
         this.init();
     }
 
@@ -20,26 +20,26 @@ class UNIAJCEducaDigital {
     }
 
     async cargarRecursos() {
-    try {
-        console.log('📥 Cargando recursos...');
-        
-        // PRIMERO: Intentar cargar del localStorage (recursos subidos)
-        const recursosSubidos = this.cargarRecursosDeLocalStorage();
-        
-        // SEGUNDO: Cargar del JSON (recursos base)
-        const recursosJSON = await this.cargarRecursosDeJSON();
-        
-        // COMBINAR: Los recursos subidos tienen prioridad
-        this.recursos = [...recursosSubidos, ...recursosJSON];
-        
-        console.log(`✅ Total recursos: ${this.recursos.length} (${recursosSubidos.length} subidos + ${recursosJSON.length} base)`);
-        this.mostrarRecursos(this.recursos);
-        
-    } catch (error) {
-        console.error('❌ Error cargando recursos:', error);
-        this.mostrarRecursos([]);
+        try {
+            console.log('📥 Cargando recursos...');
+
+            // PRIMERO: Intentar cargar del localStorage (recursos subidos)
+            const recursosSubidos = this.cargarRecursosDeLocalStorage();
+
+            // SEGUNDO: Cargar del JSON (recursos base)
+            const recursosJSON = await this.cargarRecursosDeJSON();
+
+            // COMBINAR: Los recursos subidos tienen prioridad
+            this.recursos = [...recursosSubidos, ...recursosJSON];
+
+            console.log(`✅ Total recursos: ${this.recursos.length} (${recursosSubidos.length} subidos + ${recursosJSON.length} base)`);
+            this.mostrarRecursos(this.recursos);
+
+        } catch (error) {
+            console.error('❌ Error cargando recursos:', error);
+            this.mostrarRecursos([]);
+        }
     }
-}
 
     cargarRecursosDeLocalStorage() {
         try {
@@ -59,39 +59,130 @@ class UNIAJCEducaDigital {
         try {
             const response = await fetch('./data/recursos.json');
             if (!response.ok) throw new Error('HTTP error');
-            
+
             const data = await response.json();
             console.log(`📄 Recursos cargados de JSON: ${data.recursos?.length || 0}`);
             return data.recursos || [];
         } catch (error) {
-            console.error('Error cargando de JSON:', error);
-            return [];
+            console.warn('⚠️ No se pudo cargar recursos.json (probablemente usando file://), usando datos inline');
+            // Datos inline como fallback para cuando se abre desde file://
+            return [
+                {
+                    "id": "REC-001",
+                    "titulo": "Introducción a la Programación en Java",
+                    "facultad": "Ingeniería",
+                    "programa": "Ingeniería de Sistemas",
+                    "nivel": "Pregrado",
+                    "autor": "Prof. Carlos Mendoza",
+                    "fecha_creacion": "2024-01-15",
+                    "objetivo": {
+                        "descripcion": "Comprender los fundamentos de la programación orientada a objetos usando Java como lenguaje de programación",
+                        "competencias": ["Variables y tipos de datos", "Estructuras de control", "POO básica", "Métodos y clases"]
+                    },
+                    "contenido": {
+                        "tipo": "video",
+                        "url": "assets/videos/java-intro.mp4",
+                        "duracion": "15:30",
+                        "formato": "MP4",
+                        "thumbnail": "assets/images/java-thumb.jpg"
+                    },
+                    "implementacion": {
+                        "guia_docente": "Este recurso puede utilizarse en las primeras semanas del curso de Programación I. Se recomienda complementar con ejercicios prácticos en clase.",
+                        "guia_estudiante": "Ver el video completo y luego realizar los ejercicios propuestos en la plataforma. Duración estimada: 2 horas.",
+                        "tiempo_estimado": "2 horas",
+                        "materiales_necesarios": ["Computador", "JDK 11+", "IDE (Eclipse o IntelliJ)"],
+                        "prerrequisitos": ["Conocimientos básicos de informática"]
+                    },
+                    "evaluacion": {
+                        "tipo": "cuestionario",
+                        "preguntas": [
+                            {
+                                "pregunta": "¿Qué es una clase en Java?",
+                                "opciones": [
+                                    "Un tipo de dato primitivo",
+                                    "Una plantilla para crear objetos",
+                                    "Un método especial",
+                                    "Una variable global"
+                                ],
+                                "respuesta_correcta": 1
+                            }
+                        ],
+                        "puntaje_aprobacion": 70
+                    },
+                    "metadata": {
+                        "visitas": 150,
+                        "valoracion": 4.5,
+                        "descargas": 89,
+                        "etiquetas": ["programación", "java", "poo", "ingeniería"],
+                        "destacado": true
+                    }
+                },
+                {
+                    "id": "REC-002",
+                    "titulo": "Anatomía del Sistema Cardiovascular",
+                    "facultad": "Ciencias de la Salud",
+                    "programa": "Enfermería",
+                    "nivel": "Pregrado",
+                    "autor": "Dra. María Rodríguez",
+                    "fecha_creacion": "2024-01-10",
+                    "objetivo": {
+                        "descripcion": "Identificar las estructuras y funciones del sistema cardiovascular humano",
+                        "competencias": ["Anatomía cardíaca", "Vasos sanguíneos", "Fisiología cardiovascular", "Sistema de conducción"]
+                    },
+                    "contenido": {
+                        "tipo": "infografia",
+                        "url": "assets/docs/cardiovascular-infografia.pdf",
+                        "duracion": "25 minutos",
+                        "formato": "PDF",
+                        "thumbnail": "assets/images/cardio-thumb.jpg"
+                    },
+                    "implementacion": {
+                        "guia_docente": "Utilizar como material de apoyo en clases de anatomía. Puede proyectarse y explicarse sección por sección.",
+                        "guia_estudiante": "Estudiar la infografía y realizar el esquema propuesto. Repasar antes del examen práctico.",
+                        "tiempo_estimado": "45 minutos",
+                        "materiales_necesarios": ["Tablet o computador", "Software para PDF"],
+                        "prerrequisitos": ["Conocimientos básicos de biología"]
+                    },
+                    "evaluacion": {
+                        "tipo": "actividad",
+                        "descripcion": "Crear un esquema del sistema cardiovascular identificando al menos 10 estructuras principales",
+                        "puntaje_aprobacion": 80
+                    },
+                    "metadata": {
+                        "visitas": 203,
+                        "valoracion": 4.8,
+                        "descargas": 145,
+                        "etiquetas": ["anatomía", "cardiovascular", "enfermería", "salud"],
+                        "destacado": true
+                    }
+                }
+            ];
         }
     }
 
     mostrarRecursos(recursos) {
-    const container = document.getElementById('recursos-grid');
-    if (!container) {
-        console.error('❌ No se encontró #recursos-grid');
-        return;
-    }
+        const container = document.getElementById('recursos-grid');
+        if (!container) {
+            console.error('❌ No se encontró #recursos-grid');
+            return;
+        }
 
-    console.log(`🖥️ Mostrando ${recursos.length} recursos`);
+        console.log(`🖥️ Mostrando ${recursos.length} recursos`);
 
-    if (recursos.length === 0) {
-        container.innerHTML = `
+        if (recursos.length === 0) {
+            container.innerHTML = `
             <div class="no-results text-center">
                 <i class="fas fa-search fa-3x mb-3"></i>
                 <h3>No se encontraron recursos</h3>
                 <p>Intenta con otros términos de búsqueda o filtros</p>
             </div>
         `;
-        return;
-    }
+            return;
+        }
 
-    container.innerHTML = recursos.map(recurso => {
+        container.innerHTML = recursos.map(recurso => {
             const esDestacado = recurso.metadata.destacado;
-            
+
             return `
                 <div class="recurso-card ${esDestacado ? 'card-hover' : ''}" data-id="${recurso.id}">
                     <div class="recurso-header">
@@ -151,11 +242,13 @@ class UNIAJCEducaDigital {
     obtenerIconoFontAwesome(tipo) {
         const iconos = {
             'video': 'play-circle',
-            'infografia': 'chart-pie', 
+            'infografia': 'chart-pie',
             'pdf': 'file-pdf',
             'documento': 'file-alt',
             'simulacion': 'cogs',
-            'presentacion': 'presentation'
+            'presentacion': 'presentation',
+            'enlace': 'link',
+            'genially': 'chalkboard-teacher'
         };
         return iconos[tipo] || 'file';
     }
@@ -163,9 +256,11 @@ class UNIAJCEducaDigital {
     obtenerIconoTipo(tipo) {
         const iconos = {
             'video': '🎬',
-            'infografia': '📊', 
+            'infografia': '📊',
             'pdf': '📄',
-            'documento': '📝'
+            'documento': '📝',
+            'enlace': '🔗',
+            'genially': '🎨'
         };
         return iconos[tipo] || '📁';
     }
@@ -187,18 +282,18 @@ class UNIAJCEducaDigital {
     }
 
     filtrarYMostrarRecursos() {
-    const searchInput = document.querySelector('.search-bar input');
-    const busqueda = searchInput ? searchInput.value.toLowerCase() : '';
-    
-    let recursosFiltrados = this.recursos.filter(recurso => {
+        const searchInput = document.querySelector('.search-bar input');
+        const busqueda = searchInput ? searchInput.value.toLowerCase() : '';
+
+        let recursosFiltrados = this.recursos.filter(recurso => {
             // Filtro por búsqueda
             if (busqueda) {
                 const enTitulo = recurso.titulo.toLowerCase().includes(busqueda);
                 const enDescripcion = recurso.objetivo.descripcion.toLowerCase().includes(busqueda);
-                const enEtiquetas = recurso.metadata.etiquetas?.some(etiqueta => 
+                const enEtiquetas = recurso.metadata.etiquetas?.some(etiqueta =>
                     etiqueta.toLowerCase().includes(busqueda)
                 ) || false;
-                
+
                 if (!(enTitulo || enDescripcion || enEtiquetas)) {
                     return false;
                 }
@@ -208,10 +303,10 @@ class UNIAJCEducaDigital {
             if (this.filtrosActivos.facultad) {
                 const facultadMap = {
                     'ingenieria': 'Ingeniería',
-                    'salud': 'Ciencias de la Salud', 
+                    'salud': 'Ciencias de la Salud',
                     'educacion': 'Educación'
                 };
-                
+
                 if (recurso.facultad !== facultadMap[this.filtrosActivos.facultad]) {
                     return false;
                 }
@@ -229,7 +324,7 @@ class UNIAJCEducaDigital {
 
             return true;
         });
-        
+
         this.mostrarRecursos(recursosFiltrados);
         this.actualizarContadorResultados(recursosFiltrados.length);
     }
@@ -256,27 +351,27 @@ class UNIAJCEducaDigital {
             nivel: null,
             busqueda: ''
         };
-        
+
         // Limpiar inputs
         const searchInput = document.querySelector('.search-bar input');
         if (searchInput) searchInput.value = '';
-        
+
         document.getElementById('filtroFacultad').value = '';
         document.getElementById('filtroTipo').value = '';
         document.getElementById('filtroNivel').value = '';
-        
+
         this.filtrarYMostrarRecursos();
     }
 
     verRecurso(id) {
         console.log('🔍 Navegando a recurso:', id);
-        
+
         // Guardar el recurso seleccionado para la página de detalle
         const recurso = this.recursos.find(r => r.id === id);
         if (recurso) {
             // Guardar en sessionStorage para la página de detalle
             sessionStorage.setItem('recursoSeleccionado', JSON.stringify(recurso));
-            
+
             // Redirigir a la página de detalle
             window.location.href = `recurso-detalle.html?id=${id}`;
         } else {
@@ -311,7 +406,7 @@ class UNIAJCEducaDigital {
                 this.cargarRecursos();
             }
         });
-        
+
         // Verificar si hubo actualizaciones recientes
         window.addEventListener('focus', () => {
             const ultimaActualizacion = sessionStorage.getItem('ultimaActualizacion');

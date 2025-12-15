@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -21,7 +23,7 @@
                     REDA <span></span>
                 </div>
             </div>
-            
+
             <ul class="nav-links">
                 <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
                 <li><a href="recursos.html" class="active"><i class="fas fa-book"></i> Recursos</a></li>
@@ -37,7 +39,7 @@
         <div class="hero-content">
             <h1>Catálogo de <span>Recursos</span></h1>
             <p>Explora todos los recursos educativos disponibles</p>
-            
+
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Buscar recursos, materiales, cursos...">
                 <button class="btn btn-primary" onclick="app.filtrarYMostrarRecursos()">
@@ -60,7 +62,7 @@
                         <option value="educacion">Educación</option>
                     </select>
                 </div>
-                
+
                 <div class="filtro-group">
                     <label for="filtroTipo"><i class="fas fa-file"></i> Tipo:</label>
                     <select id="filtroTipo" onchange="app.aplicarFiltroTipo(this.value)">
@@ -69,9 +71,11 @@
                         <option value="infografia">Infografía</option>
                         <option value="pdf">PDF</option>
                         <option value="simulacion">Simulación</option>
+                        <option value="enlace">Enlace Externo</option>
+                        <option value="genially">Genially</option>
                     </select>
                 </div>
-                
+
                 <div class="filtro-group">
                     <label for="filtroNivel"><i class="fas fa-graduation-cap"></i> Nivel:</label>
                     <select id="filtroNivel" onchange="app.aplicarFiltroNivel(this.value)">
@@ -81,7 +85,7 @@
                         <option value="Educación Continua">Educación Continua</option>
                     </select>
                 </div>
-                
+
                 <button class="btn btn-outline" onclick="app.limpiarFiltros()">
                     <i class="fas fa-times"></i> Limpiar Filtros
                 </button>
@@ -98,7 +102,7 @@
                     <span id="contadorRecursos">0 recursos encontrados</span>
                 </div>
             </div>
-            
+
             <div class="recursos-grid" id="recursos-grid">
                 <!-- Los recursos se cargarán aquí dinámicamente -->
                 <div class="loading">
@@ -123,7 +127,7 @@
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Enlaces Rápidos</h4>
                     <ul class="footer-links">
@@ -133,7 +137,7 @@
                         <li><a href="subir-recurso.html">Subir Recurso</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Contacto</h4>
                     <p><i class="fas fa-map-marker-alt"></i> Cali, Colombia</p>
@@ -141,7 +145,7 @@
                     <p><i class="fas fa-envelope"></i> educadigital@correo.edu.co</p>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; REDA. Todos los derechos reservados.</p>
             </div>
@@ -151,4 +155,5 @@
     <script src="js/main.js"></script>
     <script src="js/recursos.js"></script>
 </body>
+
 </html>

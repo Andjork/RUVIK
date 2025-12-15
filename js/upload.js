@@ -7,7 +7,7 @@ class GestorSubidaRecursos {
         this.requisitos = [];
         this.preguntas = [];
         this.archivoSeleccionado = null;
-        
+
         this.init();
     }
 
@@ -37,7 +37,7 @@ class GestorSubidaRecursos {
 
     configurarDragAndDrop() {
         const uploadArea = document.getElementById('upload-area');
-        
+
         if (uploadArea) {
             uploadArea.addEventListener('dragover', (e) => {
                 e.preventDefault();
@@ -55,7 +55,7 @@ class GestorSubidaRecursos {
                 e.preventDefault();
                 uploadArea.style.borderColor = '#d1d5db';
                 uploadArea.style.background = 'transparent';
-                
+
                 const files = e.dataTransfer.files;
                 if (files.length > 0) {
                     this.manejarArchivo(files[0]);
@@ -70,7 +70,7 @@ class GestorSubidaRecursos {
 
     configurarValidacionTiempoReal() {
         const camposRequeridos = [
-            'titulo', 'autor', 'facultad', 'nivel', 
+            'titulo', 'autor', 'facultad', 'nivel',
             'objetivo-descripcion', 'guia-estudiante',
             'etiquetas'
         ];
@@ -160,9 +160,27 @@ class GestorSubidaRecursos {
     mostrarCamposContenido() {
         const tipoContenido = document.getElementById('tipo-contenido').value;
         const camposContenido = document.getElementById('campos-contenido');
-        
+        const geniallyIframeGroup = document.getElementById('genially-iframe-group');
+        const urlHelpText = document.getElementById('url-help-text');
+
         if (camposContenido) {
             camposContenido.style.display = tipoContenido ? 'block' : 'none';
+        }
+
+        // Mostrar/ocultar campo de iframe de Genially
+        if (geniallyIframeGroup) {
+            geniallyIframeGroup.style.display = tipoContenido === 'genially' ? 'block' : 'none';
+        }
+
+        // Actualizar texto de ayuda según el tipo de contenido
+        if (urlHelpText) {
+            if (tipoContenido === 'genially') {
+                urlHelpText.textContent = 'URL de tu presentación de Genially (opcional si usas el código embed)';
+            } else if (tipoContenido === 'enlace') {
+                urlHelpText.textContent = 'URL del enlace externo';
+            } else {
+                urlHelpText.textContent = 'Enlace directo al recurso o archivo';
+            }
         }
     }
 
@@ -182,7 +200,7 @@ class GestorSubidaRecursos {
         }
 
         if (seccionActividad) {
-            seccionActividad.classList.toggle('hidden', 
+            seccionActividad.classList.toggle('hidden',
                 tipoEvaluacion !== 'actividad' && tipoEvaluacion !== 'proyecto');
         }
 
@@ -302,13 +320,13 @@ class GestorSubidaRecursos {
 
         // Validar tipo de archivo
         const tiposPermitidos = [
-            'video/mp4', 
-            'application/pdf', 
+            'video/mp4',
+            'application/pdf',
             'application/vnd.ms-powerpoint',
             'application/vnd.openxmlformats-officedocument.presentationml.presentation',
             'application/msword',
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-            'image/jpeg', 
+            'image/jpeg',
             'image/png'
         ];
 
@@ -331,7 +349,7 @@ class GestorSubidaRecursos {
     mostrarInfoArchivo(file) {
         const uploadArea = document.getElementById('upload-area');
         const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
-        
+
         uploadArea.innerHTML = `
             <div class="file-info">
                 <i class="fas fa-file-upload"></i>
@@ -350,7 +368,7 @@ class GestorSubidaRecursos {
         this.archivoSeleccionado = null;
         const fileInput = document.getElementById('archivo-recurso');
         fileInput.value = '';
-        
+
         const uploadArea = document.getElementById('upload-area');
         uploadArea.innerHTML = `
             <i class="fas fa-cloud-upload-alt"></i>
@@ -363,7 +381,7 @@ class GestorSubidaRecursos {
                 <span>Formatos permitidos: MP4, PDF, PPT, DOC, JPG, PNG</span>
             </div>
         `;
-        
+
         // Reconfigurar event listeners
         this.configurarDragAndDrop();
     }
@@ -410,7 +428,7 @@ class GestorSubidaRecursos {
 
             if (!tieneURL && !tieneArchivo) {
                 this.mostrarError(
-                    document.getElementById('url-contenido'), 
+                    document.getElementById('url-contenido'),
                     'Debe proporcionar una URL de contenido O subir un archivo'
                 );
                 esValido = false;
@@ -420,13 +438,13 @@ class GestorSubidaRecursos {
         // 4. Validar etiquetas (más flexible)
         const etiquetasInput = document.getElementById('etiquetas');
         const etiquetas = etiquetasInput.value.trim();
-        
+
         if (!etiquetas) {
             this.mostrarError(etiquetasInput, 'Las etiquetas son obligatorias');
             esValido = false;
         } else {
             const etiquetasArray = etiquetas.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
-            
+
             if (etiquetasArray.length === 0) {
                 this.mostrarError(etiquetasInput, 'Agregue al menos 1 etiqueta válida');
                 esValido = false;
@@ -448,7 +466,7 @@ class GestorSubidaRecursos {
                 this.limpiarError(input);
             }
         });
-        
+
         // Limpiar notificaciones globales
         document.querySelectorAll('.notificacion-global').forEach(notif => {
             notif.remove();
@@ -458,19 +476,19 @@ class GestorSubidaRecursos {
     validarEtiquetasEnTiempoReal() {
         const etiquetasInput = document.getElementById('etiquetas');
         const etiquetas = etiquetasInput.value;
-        
+
         if (!etiquetas.trim()) {
             this.mostrarError(etiquetasInput, 'Las etiquetas son obligatorias');
             return false;
         }
-        
+
         const etiquetasArray = etiquetas.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
-        
+
         if (etiquetasArray.length === 0) {
             this.mostrarError(etiquetasInput, 'Agregue al menos 1 etiqueta');
             return false;
         }
-        
+
         this.limpiarError(etiquetasInput);
         return true;
     }
@@ -479,13 +497,13 @@ class GestorSubidaRecursos {
     // Después de guardar exitosamente en localStorage:
     async procesarEnvio(event) {
         event.preventDefault();
-        
+
         console.log('=== INICIANDO ENVÍO ===');
 
         // Validación estricta para envío final
         if (!this.validarFormulario(false)) {
             this.mostrarErrorGlobal('❌ Hay errores en el formulario. Revise los campos marcados en rojo.');
-            
+
             // Scroll al primer error
             const primerError = document.querySelector('.error-message');
             if (primerError) {
@@ -500,21 +518,21 @@ class GestorSubidaRecursos {
             // RECOPILAR DATOS DEL FORMULARIO
             const recursoData = this.recopilarDatosRecurso();
             console.log('📦 Datos a guardar:', recursoData);
-            
+
             // GUARDAR EN LOCALSTORAGE
             const recursosExistentes = JSON.parse(localStorage.getItem('recursos_uniajc') || '[]');
             recursosExistentes.push(recursoData);
             localStorage.setItem('recursos_uniajc', JSON.stringify(recursosExistentes));
-            
+
             console.log('✅ Recurso guardado en localStorage');
             console.log('📊 Total de recursos subidos:', recursosExistentes.length);
-            
+
             notificacion.remove();
             this.mostrarExito('✅ ¡Recurso subido exitosamente! Será revisado por el equipo académico.');
-            
+
             // 🔄 NOTIFICAR ACTUALIZACIÓN
             this.notificarActualizacion();
-            
+
             // Redirigir después de 2 segundos
             setTimeout(() => {
                 window.location.href = 'recursos.html';
@@ -531,14 +549,14 @@ class GestorSubidaRecursos {
         if (window.opener) {
             window.opener.postMessage({ tipo: 'recursosActualizados' }, '*');
         }
-        
+
         // También guardar en sessionStorage para detectar cambios
         sessionStorage.setItem('ultimaActualizacion', new Date().toISOString());
     }
 
     recopilarDatosRecurso() {
         const formData = new FormData(document.getElementById('form-subir-recurso'));
-        
+
         // Limpiar y procesar etiquetas
         const etiquetasInput = formData.get('etiquetas') || '';
         const etiquetasLimpias = etiquetasInput.split(',')
@@ -553,20 +571,21 @@ class GestorSubidaRecursos {
             nivel: formData.get('nivel'),
             autor: formData.get('autor'),
             fecha_creacion: new Date().toISOString().split('T')[0],
-            
+
             objetivo: {
                 descripcion: formData.get('objetivo-descripcion'),
                 competencias: this.competencias
             },
-            
+
             contenido: {
                 tipo: formData.get('tipo-contenido'),
                 url: formData.get('url-contenido'),
                 duracion: formData.get('duracion'),
                 formato: formData.get('formato'),
-                thumbnail: formData.get('thumbnail')
+                thumbnail: formData.get('thumbnail'),
+                iframe: formData.get('genially-iframe') // Código iframe para Genially
             },
-            
+
             implementacion: {
                 guia_docente: formData.get('guia-docente'),
                 guia_estudiante: formData.get('guia-estudiante'),
@@ -574,9 +593,9 @@ class GestorSubidaRecursos {
                 materiales_necesarios: this.materiales,
                 prerrequisitos: formData.get('prerrequisitos')
             },
-            
+
             evaluacion: this.generarDatosEvaluacion(formData),
-            
+
             metadata: {
                 visitas: 0,
                 valoracion: 0,
@@ -590,7 +609,7 @@ class GestorSubidaRecursos {
 
     generarDatosEvaluacion(formData) {
         const tipoEvaluacion = formData.get('tipo-evaluacion');
-        
+
         if (tipoEvaluacion === 'ninguna') {
             return { tipo: 'ninguna' };
         }
@@ -627,10 +646,10 @@ class GestorSubidaRecursos {
             const intervalo = setInterval(() => {
                 progreso += 20;
                 console.log(`Progreso de subida: ${progreso}%`);
-                
+
                 if (progreso >= 100) {
                     clearInterval(intervalo);
-                    
+
                     // Validación final simulada
                     if (!recursoData.titulo || !recursoData.autor) {
                         reject(new Error('Datos incompletos del recurso'));
@@ -640,7 +659,7 @@ class GestorSubidaRecursos {
                             const recursosExistentes = JSON.parse(localStorage.getItem('recursos_uniajc') || '[]');
                             recursosExistentes.push(recursoData);
                             localStorage.setItem('recursos_uniajc', JSON.stringify(recursosExistentes));
-                            
+
                             console.log('✅ Recurso guardado en localStorage:', recursoData);
                             resolve(recursoData);
                         } catch (error) {
@@ -666,7 +685,7 @@ class GestorSubidaRecursos {
 
     mostrarPrevisualizacion(recursoData) {
         const modalBody = document.getElementById('modal-previsualizacion-body');
-        
+
         modalBody.innerHTML = `
             <div class="previsualizacion-recurso">
                 <div class="preview-header">
@@ -745,15 +764,15 @@ class GestorSubidaRecursos {
         document.getElementById('url-contenido').value = 'https://ejemplo.com/recurso.pdf';
         document.getElementById('tiempo-estimado').value = '2 horas';
         document.getElementById('etiquetas').value = 'prueba, sistema, validación, uniajc';
-        
+
         // Agregar competencias automáticamente
         this.competencias = ['Competencia técnica 1', 'Competencia analítica 2', 'Competencia práctica 3'];
         this.actualizarListaCompetencias();
-        
+
         // Agregar materiales automáticamente  
         this.materiales = ['Computador', 'Conexión a internet', 'Software específico'];
         this.actualizarListaMateriales();
-        
+
         this.mostrarExito('✅ Formulario llenado automáticamente para pruebas. Ahora puedes previsualizar o enviar.');
     }
 
@@ -785,7 +804,7 @@ class GestorSubidaRecursos {
         this.requisitos = [];
         this.preguntas = [];
         this.archivoSeleccionado = null;
-        
+
         this.actualizarListaCompetencias();
         this.actualizarListaMateriales();
         this.actualizarListaRequisitos();
@@ -804,7 +823,7 @@ class GestorSubidaRecursos {
 
     mostrarError(elemento, mensaje) {
         elemento.style.borderColor = 'var(--danger)';
-        
+
         let errorElement = elemento.parentNode.querySelector('.error-message');
         if (!errorElement) {
             errorElement = document.createElement('div');
@@ -816,7 +835,7 @@ class GestorSubidaRecursos {
 
     limpiarError(elemento) {
         elemento.style.borderColor = '#e5e7eb';
-        
+
         const errorElement = elemento.parentNode.querySelector('.error-message');
         if (errorElement) {
             errorElement.remove();
